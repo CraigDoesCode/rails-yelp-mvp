@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_restaurant, only: %i[new create]
   def new
     @review = Review.new
+    puts "new is used"
   end
 
   def create

@@ -1,5 +1,20 @@
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="container d-flex">
+    <h2>All Restaurants</h2>
+    <%= link_to "add resturant", new_restaurant_path, class: "btn btn-primary mx-3"%>
+  </div>
+  <div class="container d-flex flex-wrap justify-content-center my-3">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card" style="width: 10rem">
+          <%= image_tag("https://source.unsplash.com/random/100x100/?food")%>
+          <div class="card-body p-1">
+            <h4 class="card-title mb-3"><%= restaurant.name %></h4>
+            <p><%= restaurant.category %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
